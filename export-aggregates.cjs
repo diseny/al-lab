@@ -28,14 +28,16 @@ for(const view of privateViews){h.setView(view);const output={unit:view.unit,coh
     for(const matched of [false,true])for(const stage of stages){const rows=stage.rows.filter(r=>!matched||both.has(r.i));const groups=[];for(const major of [...new Set(rows.map(r=>r.major))].filter(m=>m&&m!=='학부명 기록').sort()){const members=rows.filter(r=>r.major===major&&r.courses.length),p=h.relatedCoursePool(view,major);if(members.length<5){groups.push({major,n:null,mean:null,topOutside:[],keys:p.keys,reviewed:p.reviewed});continue;}
       const mean=members.reduce((sum,r)=>sum+r.courses.filter(c=>!p.ids.has(c)).length/r.courses.length,0)/members.length;
       const counts=new Map();members.forEach(r=>r.courses.filter(c=>!p.ids.has(c)).forEach(c=>counts.set(c,(counts.get(c)||0)+1)));
-      const topOutside=[...counts].filter(([c,n])=>n>=5).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([c,n])=>({title:view.titles[c-1],n,rate:n/members.length}));
+      // Keep aggregate course names visible; suppress small course-level counts
+      // and percentages rather than dropping the course altogether.
+      const topOutside=[...counts].sort((a,b)=>b[1]-a[1]).slice(0,8).map(([c,n])=>({title:view.titles[c-1],n:n>=5?n:null,rate:n>=5?n/members.length:null}));
       groups.push({major,n:members.length,mean,topOutside,keys:p.keys,reviewed:p.reviewed});}
       output.submajors.push({number:stage.number,matched,groups});}
   }views.push(output);
 }
 const texts=overridesPath?JSON.parse(fs.readFileSync(overridesPath,'utf8')).texts:{};
-const payload={version:'1.0.0',releasedOn:'2026-11-06',privacy:{minimumCellSize:5,individualRecords:false},texts,views};
+const payload={version:'1.0.1',releasedOn:'2026-11-06',privacy:{minimumCellSize:5,smallCourseCountsSuppressed:true,individualRecords:false},texts,views};
 // Check actual released cell/group granularity, not merely field labels.
-for(const v of views){for(const s of v.stages)for(const m of ['all','reduced']){assert(s[m].cells.every(c=>c.n>=5));assert.equal(s[m].cells.reduce((n,c)=>n+c.n,0),s.n);}for(const s of v.submajors)for(const g of s.groups){assert(g.n===null||g.n>=5);assert(g.topOutside.every(c=>c.n>=5));}}
+for(const v of views){for(const s of v.stages)for(const m of ['all','reduced']){assert(s[m].cells.every(c=>c.n>=5));assert.equal(s[m].cells.reduce((n,c)=>n+c.n,0),s.n);}for(const s of v.submajors)for(const g of s.groups){assert(g.n===null||g.n>=5);assert(g.topOutside.every(c=>c.n===null?c.rate===null:c.n>=5));if(g.mean>0)assert(g.topOutside.length>0);}}
 const serialized=JSON.stringify(payload,null,2);assert(!/research_id|raw_title|"rows"|"courses"|"current_major"|"all":\s*\[|"reduced":\s*\[/.test(serialized));
 const outputPath=path.join(__dirname,'data.json');fs.writeFileSync(outputPath,serialized+'\n');console.log('Aggregate-only data generated:',views.length,'views;',Buffer.byteLength(serialized),'bytes; all released cells >=5.');

@@ -1,8 +1,9 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "releasedOn": "2026-11-06",
   "privacy": {
     "minimumCellSize": 5,
+    "smallCourseCountsSuppressed": true,
     "individualRecords": false
   },
   "texts": {
@@ -618,7 +619,33 @@
               "major": "경제학·정치외교학전공",
               "n": 5,
               "mean": 0.15238095238095237,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "과학기술과 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인간과 두뇌의 신비",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인문사회계열 취업역량개발",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "컨템포러리 댄스",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "자기이해와 진로탐색",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "경제",
                 "국제통상",
@@ -644,7 +671,48 @@
               "major": "경제학전공",
               "n": 17,
               "mean": 0.5750700280112044,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "미디어의 역사와 미디어 리터러시의 변화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사회과학 고전 읽기",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "철학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "전쟁과 평화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "법과 정치",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "과학기술과 윤리",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "재산, 가족 그리고 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사랑의 담론",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "경제",
                 "국제통상",
@@ -663,7 +731,48 @@
               "major": "사회학전공",
               "n": 6,
               "mean": 0.5166666666666667,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "인간과 두뇌의 신비",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "미디어의 역사와 미디어 리터러시의 변화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국문화예술비평",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중국사상과 예술",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "전쟁과 평화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문화콘텐츠기획실습",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "법과 정치",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국영화사",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "사회학",
                 "사회통계",
@@ -683,7 +792,33 @@
               "major": "정치외교학·사회학전공",
               "n": 5,
               "mean": 0.17333333333333334,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "사회변동과 발전",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문(文): 삶과 꿈",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "여대생 커리어개발1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국영화사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "미디어의 역사와 미디어 리터러시의 변화",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "정치",
                 "외교",
@@ -708,7 +843,48 @@
               "major": "정치외교학전공",
               "n": 5,
               "mean": 0.3333333333333333,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "여대생 커리어개발1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중국사상과 예술",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "모빌리티의 사회학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "디자인과 사회",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중견기업의 이해",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "과학기술과 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "경제원론1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "정치",
                 "외교",
@@ -807,7 +983,48 @@
               "major": "경제학전공",
               "n": 10,
               "mean": 0.6228571428571428,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "합리적 선택과 정치학 모델",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사회학이론",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "Consumption and Popular Culture",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "자연과학의 이해",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국외교정책",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국정치",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문학과 미디어",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "아시아공동체론",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "경제",
                 "국제통상",
@@ -826,7 +1043,48 @@
               "major": "사회학전공",
               "n": 5,
               "mean": 0.7133333333333334,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "문화매개와 콘텐츠",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "경제사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국외교정책",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국문화예술비평",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양고전철학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문(文): 삶과 꿈",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "축제 기획과 연출",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "데이터 분석 방법과 적용",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "사회학",
                 "사회통계",
@@ -871,7 +1129,48 @@
               "major": "정치외교학전공",
               "n": 5,
               "mean": 0.5142857142857142,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "자기이해와 진로탐색",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양음악사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "기후위기와 생태사회학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사상과 변혁의 한국사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "철학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "드로잉 연습",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "전환기 근대사의 조명",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "정치",
                 "외교",
@@ -970,7 +1269,48 @@
               "major": "경제학전공",
               "n": 10,
               "mean": 0.5404761904761906,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "미디어의 역사와 미디어 리터러시의 변화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "발명과 특허",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "일본입문",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "일본사회와 문화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "일본어1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "동양고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "재산, 가족 그리고 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "범죄와 현대사회",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "경제",
                 "국제통상",
@@ -989,7 +1329,48 @@
               "major": "사회학전공",
               "n": 5,
               "mean": 0.54,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "인간과 두뇌의 신비",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "미디어의 역사와 미디어 리터러시의 변화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중국사상과 예술",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "전쟁과 평화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문화콘텐츠기획실습",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "법과 정치",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국영화사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국문화예술비평",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "사회학",
                 "사회통계",
@@ -1034,7 +1415,48 @@
               "major": "정치외교학전공",
               "n": 5,
               "mean": 0.3333333333333333,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "여대생 커리어개발1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중국사상과 예술",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "모빌리티의 사회학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "디자인과 사회",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "중견기업의 이해",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "과학기술과 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "경제원론1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "정치",
                 "외교",
@@ -1133,7 +1555,48 @@
               "major": "경제학전공",
               "n": 10,
               "mean": 0.6228571428571428,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "합리적 선택과 정치학 모델",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사회학이론",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "Consumption and Popular Culture",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "자연과학의 이해",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국외교정책",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국정치",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문학과 미디어",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "아시아공동체론",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "경제",
                 "국제통상",
@@ -1152,7 +1615,48 @@
               "major": "사회학전공",
               "n": 5,
               "mean": 0.7133333333333334,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "문화매개와 콘텐츠",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "경제사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국외교정책",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국문화예술비평",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양고전철학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "문(文): 삶과 꿈",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "축제 기획과 연출",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "데이터 분석 방법과 적용",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "사회학",
                 "사회통계",
@@ -1197,7 +1701,48 @@
               "major": "정치외교학전공",
               "n": 5,
               "mean": 0.5142857142857142,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "자기이해와 진로탐색",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양음악사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "기후위기와 생태사회학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사상과 변혁의 한국사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "철학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "드로잉 연습",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "전환기 근대사의 조명",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "정치",
                 "외교",
@@ -2081,7 +2626,48 @@
               "major": "물리·양자과학전공(과)",
               "n": 12,
               "mean": 0.2398809523809524,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "생물학실험2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인권과 헌법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "식물생리학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "몸으로 읽는 예술의 언어: 감정·신체·예술의 융복합적 탐구",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학실험",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "현대의 시민생활과 법",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국사입문",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학1",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "물리",
                 "수학",
@@ -2104,7 +2690,48 @@
               "major": "생명과학·응용생물학 전공(과)",
               "n": 11,
               "mean": 0.4088744588744589,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "서양음악사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양미술을 보는 눈: 미술, 미술가, 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양 현대문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리화학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인문사회계열 취업역량개발",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사상과 변혁의 한국사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "English",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리학",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "생명",
                 "생물",
@@ -2134,7 +2761,48 @@
               "major": "화학·물질과학전공(과)",
               "n": 13,
               "mean": 0.38653846153846155,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "정치학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양미술을 보는 눈: 미술, 미술가, 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생물학실험2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "세포생물학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학실험",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "과학기술과 법",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "화학",
                 "수학",
@@ -2160,7 +2828,48 @@
               "major": "물리·양자과학전공(과)",
               "n": 5,
               "mean": 0.3304761904761905,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "생물학2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "Threat Analysis",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "침해사고분석",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국의 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학실험2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "융합프로그래밍",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인권과 헌법",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "물리",
                 "수학",
@@ -2183,7 +2892,48 @@
               "major": "생명과학·응용생물학 전공(과)",
               "n": 11,
               "mean": 0.28874458874458875,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "한국의 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "고대문명사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "몸으로 읽는 예술의 언어: 감정·신체·예술의 융복합적 탐구",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "식물과 인간",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "살아있는 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "일본어1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "아주강좌2",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "생명",
                 "생물",
@@ -2213,7 +2963,48 @@
               "major": "화학·물질과학전공(과)",
               "n": 12,
               "mean": 0.23105158730158734,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "영화로 보는 한반도",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사회봉사이론",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양영화사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "언어와 현대문화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "What is Ethics?",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인물과 논쟁으로 본 한국사",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "화학",
                 "수학",
@@ -2239,7 +3030,33 @@
               "major": "물리·양자과학전공(과)",
               "n": 5,
               "mean": 0.1519047619047619,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "식물생리학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "몸으로 읽는 예술의 언어: 감정·신체·예술의 융복합적 탐구",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학실험",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "논리회로",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "통일 한국의 이해",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "물리",
                 "수학",
@@ -2262,7 +3079,48 @@
               "major": "생명과학·응용생물학 전공(과)",
               "n": 11,
               "mean": 0.4088744588744589,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "서양음악사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양미술을 보는 눈: 미술, 미술가, 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양 현대문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리화학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인문사회계열 취업역량개발",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사상과 변혁의 한국사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "English",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리학",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "생명",
                 "생물",
@@ -2292,7 +3150,48 @@
               "major": "화학·물질과학전공(과)",
               "n": 12,
               "mean": 0.4048611111111111,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "정치학이란 무엇인가",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양미술을 보는 눈: 미술, 미술가, 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생물학실험2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "세포생물학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학실험",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "생명과학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "과학기술과 법",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "화학",
                 "수학",
@@ -2318,7 +3217,48 @@
               "major": "물리·양자과학전공(과)",
               "n": 5,
               "mean": 0.3304761904761905,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "생물학2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "Threat Analysis",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "침해사고분석",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "한국의 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "화학실험2",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "융합프로그래밍",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인권과 헌법",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "물리",
                 "수학",
@@ -2341,7 +3281,48 @@
               "major": "생명과학·응용생물학 전공(과)",
               "n": 11,
               "mean": 0.28874458874458875,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "한국의 고전문학",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "고대문명사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "몸으로 읽는 예술의 언어: 감정·신체·예술의 융복합적 탐구",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "식물과 인간",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "살아있는 미술관",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "일본어1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "아주강좌2",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "생명",
                 "생물",
@@ -2371,7 +3352,48 @@
               "major": "화학·물질과학전공(과)",
               "n": 12,
               "mean": 0.23105158730158734,
-              "topOutside": [],
+              "topOutside": [
+                {
+                  "title": "영화로 보는 한반도",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "사회봉사이론",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "서양영화사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "언어와 현대문화",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "물리학1",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "정치변혁의 세계사",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "What is Ethics?",
+                  "n": null,
+                  "rate": null
+                },
+                {
+                  "title": "인물과 논쟁으로 본 한국사",
+                  "n": null,
+                  "rate": null
+                }
+              ],
               "keys": [
                 "화학",
                 "수학",
