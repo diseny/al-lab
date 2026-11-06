@@ -1,0 +1,11 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Lab · 수강 패턴 탐색</title><link rel="stylesheet" href="styles.css"></head><body><main>
+<header><span class="tag">공동연구 탐색 · 집계 데이터</span><h1>수강 패턴 탐색</h1><p class="muted">학기별 과목 선택과 전공 경로를 함께 살펴봅니다.</p><small id="version"></small></header>
+<nav class="controls" aria-label="분석 화면"><button id="map-tab" aria-pressed="true">수강패턴지도</button><button id="submajor-tab" aria-pressed="false">세부전공별 수강 패턴</button></nav>
+<nav class="controls" id="units" aria-label="학부·대학"></nav>
+<section class="panel"><h2>선택한 학부의 전공 관련 키워드</h2><p id="keywords"></p></section>
+<nav class="controls" id="cohorts" aria-label="학번"></nav>
+<div id="map-options" class="controls"><label><input type="checkbox" id="common"> 공통과목 제외</label><label id="major-label"><input type="checkbox" id="major"> 집계 집단의 세부전공을 색·기호로 구분</label></div>
+<section id="map-panel"><p class="notice">원 하나는 5명 이상의 학생을 묶은 집계 집단입니다. 원의 크기는 집단 인원에 비례합니다. 개별 학생 위치와 수강 기록은 공개하지 않습니다. 집계 과정에서 위치가 단순화되어 집단 간 거리는 대략적인 참고로만 봅니다.</p><div id="legend" class="legend"></div><div id="maps" class="maps"></div><section id="comparison" class="panel"></section><section id="estimates" class="panel"></section></section>
+<section id="submajor-panel" hidden></section>
+<footer><p>집계 단위별 5명 미만 수치와 학생별 원자료는 제공하지 않습니다. 2026학번은 첫 번째·두 번째 학기 기록만 있습니다. 2025학번 네 번째 학기는 진행 중인 수강 기록입니다.</p></footer>
+</main><script src="app.js"></script></body></html>

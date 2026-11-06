@@ -1,0 +1,13 @@
+.vercel/
+node_modules/
+.env*
+*.xlsx
+*.xls
+*.csv
+*.rds
+*.RData
+*.Rhistory
+restricted_originals/
+analysis_deidentified/
+
+/tools/
