@@ -1,1 +1,8 @@
-{"name":"al-lab-aggregate-dashboard","version":"1.0.1","private":true,"scripts":{"check":"node check-public.cjs"}}
+{
+  "name": "al-lab-aggregate-dashboard",
+  "version": "1.0.2",
+  "private": true,
+  "scripts": {
+    "check": "node check-public.cjs"
+  }
+}

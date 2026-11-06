@@ -36,7 +36,7 @@ for(const view of privateViews){h.setView(view);const output={unit:view.unit,coh
   }views.push(output);
 }
 const texts=overridesPath?JSON.parse(fs.readFileSync(overridesPath,'utf8')).texts:{};
-const payload={version:'1.0.1',releasedOn:'2026-11-06',privacy:{minimumCellSize:5,smallCourseCountsSuppressed:true,individualRecords:false},texts,views};
+const payload={version:'1.0.2',releasedOn:'2026-11-06',privacy:{minimumCellSize:5,smallCourseCountsSuppressed:true,individualRecords:false},texts,views};
 // Check actual released cell/group granularity, not merely field labels.
 for(const v of views){for(const s of v.stages)for(const m of ['all','reduced']){assert(s[m].cells.every(c=>c.n>=5));assert.equal(s[m].cells.reduce((n,c)=>n+c.n,0),s.n);}for(const s of v.submajors)for(const g of s.groups){assert(g.n===null||g.n>=5);assert(g.topOutside.every(c=>c.n===null?c.rate===null:c.n>=5));if(g.mean>0)assert(g.topOutside.length>0);}}
 const serialized=JSON.stringify(payload,null,2);assert(!/research_id|raw_title|"rows"|"courses"|"current_major"|"all":\s*\[|"reduced":\s*\[/.test(serialized));
