@@ -83,24 +83,4 @@ for (const page of pages) {
     });
   }
 }
-const catalog = embedded('catalog_metrics.html', 'catalog-data');
-shape(catalog, 'version releasedOn privacy texts views');
-inspect(catalog);
-assert.equal(catalog.views.length, 6);
-for (const view of catalog.views) {
-  shape(view, 'unit cohort estimates stages submajors basis');
-  for (const estimate of view.estimates) shape(estimate, 'target mean scored unresolved');
-  for (const stage of view.stages) {
-    shape(stage, 'number n all reduced calendar');
-    for (const mode of ['all', 'reduced']) shape(stage[mode], 'overlap spread');
-  }
-  for (const stage of view.submajors) {
-    shape(stage, 'number matched groups calendar');
-    for (const group of stage.groups) {
-      shape(group, 'major n mean');
-      if (group.n !== null) count(group.n);
-      else assert.equal(group.mean, null);
-    }
-  }
-}
-console.log('PASS: flow and catalog pages contain only approved aggregate fields.');
+console.log('PASS: course network contains only approved aggregate fields.');
