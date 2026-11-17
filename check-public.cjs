@@ -27,10 +27,22 @@ function courseStats(stats, keys, overall) {
   shape(stats, keys);
   if (stats.n === null) {
     assert.equal(stats.outside, null);
+    assert.equal(stats.cases.length, 0);
     assert.equal(stats.courses.length, 0);
   } else {
     count(stats.n);
     if (stats.outside !== null) fraction(stats.outside);
+  }
+  assert(Array.isArray(stats.cases) && stats.cases.length <= 3);
+  if (stats.outside !== null && stats.stage !== 1) {
+    assert.equal(stats.cases.length, Math.min(stats.n, 3));
+  }
+  for (const courseNames of stats.cases) {
+    assert(Array.isArray(courseNames) && courseNames.length > 0);
+    for (const title of courseNames) {
+      assert(typeof title === 'string' && title.trim().length > 0);
+      assert(!/\b(?:R_[a-f0-9]{20}|20[12]\d\d{4,})\b/i.test(title));
+    }
   }
   assert(stats.courses.length <= 15);
   for (const course of stats.courses) {
@@ -66,11 +78,13 @@ for (const page of pages) {
     assert.equal(group.terms.length, 4);
     assert.equal(group.links.length, 3);
     const termCodes = group.terms.map(term => {
-      courseStats(term, 'stage n outside courses profiles', true);
+      courseStats(term, 'stage n outside courses cases profiles', true);
+      if (term.stage === 1) assert.equal(term.cases.length, 0);
       shape(term.profiles, 'high low');
       const codes = new Set(term.courses.map(c => c.code));
       for (const band of Object.values(term.profiles)) {
-        courseStats(band, 'n outside courses', false);
+        courseStats(band, 'n outside courses cases', false);
+        if (term.stage === 1) assert.equal(band.cases.length, 0);
         for (const c of band.courses) assert(codes.has(c.code));
       }
       return codes;
@@ -83,4 +97,4 @@ for (const page of pages) {
     });
   }
 }
-console.log('PASS: course network contains only approved aggregate fields.');
+console.log('PASS: course network contains approved aggregates and course-title-only cases.');
