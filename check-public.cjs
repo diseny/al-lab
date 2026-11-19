@@ -17,8 +17,9 @@ function embedded(file, id) {
 function shape(value, fields) {
   assert.deepStrictEqual(Object.keys(value).sort(), fields.split(' ').sort());
 }
+let minimumCount = 5;
 function count(n) {
-  assert(Number.isInteger(n) && n >= 5);
+  assert(Number.isInteger(n) && n >= minimumCount);
 }
 function fraction(rate) {
   assert(typeof rate === 'number' && rate >= 0 && rate <= 1);
@@ -74,6 +75,7 @@ for (const page of pages) {
   assert.equal(page.cutoff, 3);
   for (const group of page.groups) {
     shape(group, 'label n terms links');
+    minimumCount = ['학부 전체', '대학 전체', '세부전공 미기록'].includes(group.label) ? 5 : 1;
     count(group.n);
     assert.equal(group.terms.length, 4);
     assert.equal(group.links.length, 3);
@@ -98,3 +100,34 @@ for (const page of pages) {
   }
 }
 console.log('PASS: course network contains approved aggregates and course-title-only cases.');
+const networks = embedded('course_paths.html', 'network-data');
+for (const page of networks) {
+  shape(page, 'unit groups');
+  for (const group of page.groups) {
+    shape(group, 'label terms');
+    for (const term of group.terms) {
+      shape(term, 'stage n nodes edges');
+      assert(term.nodes.length <= 50);
+      const codes = new Set(term.nodes.map(n => n.code));
+      const connected = new Set(term.edges.flatMap(e => [e.source, e.target]));
+      const communities = new Map();
+      for (const node of term.nodes) {
+        shape(node, 'code title n x y strength betweenness community');
+        assert(Number.isInteger(node.n) && node.n >= 3 && node.n <= term.n);
+        assert(Number.isFinite(node.x) && Number.isFinite(node.y));
+        if (node.community !== null) {
+          assert(Number.isInteger(node.community) && node.community > 0 && connected.has(node.code));
+          communities.set(node.community, (communities.get(node.community) || 0) + 1);
+        }
+      }
+      for (const size of communities.values()) assert(size >= 2);
+      for (const edge of term.edges) {
+        shape(edge, 'source target n weight');
+        assert(codes.has(edge.source) && codes.has(edge.target));
+        assert(Number.isInteger(edge.n) && edge.n >= 3 && edge.n <= term.n);
+        assert(Math.abs(edge.weight - edge.n / term.n) < 1e-8);
+      }
+    }
+  }
+}
+console.log('PASS: network aggregate schema and community membership.');
