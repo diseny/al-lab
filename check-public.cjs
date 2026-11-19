@@ -113,7 +113,7 @@ for (const page of networks) {
       const connected = new Set(term.edges.flatMap(e => [e.source, e.target]));
       const communities = new Map();
       for (const node of term.nodes) {
-        shape(node, 'code title n x y strength betweenness community');
+        shape(node, 'code title n x y strength community');
         assert(Number.isInteger(node.n) && node.n >= 3 && node.n <= term.n);
         assert(Number.isFinite(node.x) && Number.isFinite(node.y));
         if (node.community !== null) {
