@@ -92,7 +92,7 @@ for (const page of pages) {
       return codes;
     });
     group.links.forEach((link, index) => {
-      minimumCount = index === 2 && ['학부 전체', '대학 전체'].includes(group.label) ? 2 : (['학부 전체', '대학 전체', '세부전공 미기록'].includes(group.label) ? 5 : 1);
+      minimumCount = index === 2 && ['학부 전체', '대학 전체', '세부전공 미기록'].includes(group.label) ? 2 : (['학부 전체', '대학 전체', '세부전공 미기록'].includes(group.label) ? 5 : 1);
       const endpoints = termCodes.slice(index, index + 2);
       connections(link, 'from paired edges profiles', ...endpoints);
       shape(link.profiles, 'high low');
