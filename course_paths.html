@@ -34,7 +34,7 @@ path[role=button]:focus{outline:none;stroke-opacity:1}
 @media(max-width:750px){main{padding:12px}}
 </style>
 <main>
-<nav aria-label="대시보드"><strong>2025학번 수강 흐름</strong> · <small>v1.4.0</small></nav>
+<nav aria-label="대시보드"><strong>2025학번 수강 흐름</strong> · <small>v1.5.0</small></nav>
 <p class="summary">학부·대학 전체의 연결선은 1→2·2→3학기 5명 이상, 3→4학기 2명 이상 기준임. 세부전공은 1명 이상, 세부전공 미기록은 5명 이상 기준임. 표시 과목은 기존 기준의 학기별 상위 15과목임. —는 표시 기준을 충족한 값이 없음을 뜻함.</p>
 <nav id="units" class="unit-tabs" role="tablist" aria-label="학부"></nav>
 <section id="unit-panel" role="tabpanel">
@@ -60,12 +60,15 @@ path[role=button]:focus{outline:none;stroke-opacity:1}
 </dialog>
 <section aria-labelledby="network-title">
 <h2 id="network-title">학기별 과목 네트워크</h2>
+<div id="network-modes" class="unit-tabs" role="tablist" aria-label="중심성 보기"></div>
 <div id="network-groups" class="major-options" role="group" aria-label="네트워크 집단"></div>
 <div id="network-terms" class="major-options" role="group" aria-label="네트워크 학기"></div>
-<p class="summary">점 크기는 연결강도, 주황색 원은 매개 중심성이 높은 과목, 선 굵기는 공동 수강 비율임. 옅은 배경은 함께 수강되는 경향이 강한 과목 군집임. 배경을 선택하면 구성 과목을 확인할 수 있음. 3명 이상·상위 50과목 기준임.</p>
+<p id="network-mode-note" class="summary"></p>
+<p class="summary">점 크기는 연결강도, 선 굵기는 공동 수강 비율임. 옅은 배경은 함께 수강되는 경향이 강한 과목 군집임. 배경을 선택하면 구성 과목을 확인할 수 있음. 3명 이상·상위 50과목 기준임.</p>
 <p class="summary">군집은 각 학기 안에서 나눈 과목 묶음임. 같은 색·번호라도 다른 학기나 전공에서 같은 묶음을 뜻하지 않음.</p>
 <div id="network-reading" aria-live="polite"></div>
-<div id="course-network" class="scroll"></div>
+<p id="network-ranking" class="detail" role="status" hidden></p>
+<div id="course-network" class="scroll" role="tabpanel"></div>
 <p id="network-detail" class="detail" role="status"></p>
 </section>
 </main>
@@ -302,7 +305,8 @@ function clearFocus(){
 }
 
 const networkPages=JSON.parse(get('network-data').textContent);
-let networkGroup=0,networkStage=0;
+let networkGroup=0,networkStage=0,networkMode='betweenness';
+const networkModes={betweenness:'매개 중심성',strength:'연결강도 중심성'};
 function networkButtons(root,items,selected,callback){
   root.replaceChildren();
   items.forEach((label,index)=>{
@@ -315,6 +319,33 @@ function networkButtons(root,items,selected,callback){
     root.append(button);
   });
 }
+function renderNetworkModes(){
+  const root=get('network-modes');root.replaceChildren();
+  const modes=Object.entries(networkModes);
+  modes.forEach(([mode,label],index)=>{
+    const button=document.createElement('button');
+    button.type='button';button.className='unit-tab';button.id='network-mode-'+mode;
+    button.textContent=label;
+    button.setAttribute('role','tab');
+    button.setAttribute('aria-controls','course-network');
+    button.setAttribute('aria-selected',String(networkMode===mode));
+    button.tabIndex=networkMode===mode?0:-1;
+    button.onclick=()=>{networkMode=mode;renderNetwork();};
+    button.onkeydown=event=>{
+      if(event.key!=='ArrowLeft'&&event.key!=='ArrowRight')return;
+      event.preventDefault();
+      const next=(index+(event.key==='ArrowRight'?1:-1)+modes.length)%modes.length;
+      networkMode=modes[next][0];renderNetwork();
+      get('network-modes').children[next].focus();
+    };
+    root.append(button);
+  });
+  get('course-network').setAttribute('aria-labelledby','network-mode-'+networkMode);
+  get('network-mode-note').textContent=networkMode==='strength'
+    ? '주황색 원과 순위는 다른 과목과 함께 수강된 정도가 높은 상위 3과목임.'
+    : '주황색 원은 매개 중심성이 해당 지도 최댓값의 70% 이상인 과목임.';
+}
+
 function selectNetworkUnit(){
   networkGroup=0;networkStage=0;
   renderNetwork();
@@ -402,14 +433,26 @@ function drawNetworkCommunities(chart,term,coords){
 }
 
 function renderNetwork(){
+  renderNetworkModes();
   const page=networkPages[selectedUnit];
   networkButtons(get('network-groups'),page.groups.map(g=>g.label),networkGroup,i=>{networkGroup=i;renderNetwork();});
   networkButtons(get('network-terms'),['1번째 학기','2번째 학기','3번째 학기','4번째 학기'],networkStage,i=>{networkStage=i;renderNetwork();});
   const group=page.groups[networkGroup],term=group.terms[networkStage];
   renderNetworkReading(group);
+  const ranked=[...term.nodes].filter(node=>node.strength>0)
+    .sort((a,b)=>b.strength-a.strength||b.n-a.n||a.code.localeCompare(b.code));
+  const top=ranked.slice(0,3);
+  const strengthRanks=new Map(top.map((node,index)=>[node.code,index+1]));
+  const ranking=get('network-ranking');
+  ranking.hidden=networkMode!=='strength';
+  const tiedCutoff=ranked.length>3&&Math.abs(ranked[2].strength-ranked[3].strength)<1e-8;
+  ranking.textContent=top.length
+    ? '연결강도 Top '+top.length+' · '+top.map((node,index)=>(index+1)+'위 '+node.title+' ('+node.strength.toFixed(2)+')').join(' · ')+(tiedCutoff?' · 동률은 수강 인원·과목코드 순으로 표시함.':'')
+    : '공동 수강 연결이 없어 연결강도 상위 과목을 선정할 수 없음.';
+
   const root=get('course-network');root.replaceChildren();
   get('network-detail').textContent='';
-  const chart=svg(root,'svg',{viewBox:'0 0 1440 860',role:'group','aria-label':page.unit+' '+group.label+' '+(networkStage+1)+'학기 과목 네트워크'});
+  const chart=svg(root,'svg',{viewBox:'0 0 1440 860',role:'group','aria-label':page.unit+' '+group.label+' '+(networkStage+1)+'학기 '+networkModes[networkMode]+' 과목 네트워크'});
   svg(chart,'text',{x:20,y:26,'font-size':16,fill:'#193440'},group.label+' · '+(networkStage+1)+'학기 · '+term.n+'명 · '+term.nodes.length+'과목');
   if(!term.nodes.length){
     svg(chart,'text',{x:720,y:430,'text-anchor':'middle',fill:'#405c68'},'표시 기준에 해당하는 과목이 없음.');
@@ -443,10 +486,13 @@ function renderNetwork(){
   }
   for(const n of coords.values()){
     const bridge=maxBridge>0&&n.betweenness>=maxBridge*.7;
+    const rank=strengthRanks.get(n.code);
+    const emphasized=networkMode==='strength'?rank!==undefined:bridge;
     const text=n.title+' · '+n.n+'/'+term.n+'명 수강 · 연결강도 '+n.strength.toFixed(2)+' · 매개 중심성 '+n.betweenness.toFixed(3);
     const mark=svg(chart,'g',{role:'button',tabindex:0,'aria-label':text});
     svg(mark,'title',{},text);
-    svg(mark,'circle',{cx:n.x,cy:n.y,r:7+16*Math.sqrt(n.strength/maxStrength),fill:bridge?'#e97824':bandColor(group.label,'all'),stroke:bridge?'#ffffff':'#8aa3af','stroke-width':bridge?5:1});
+    svg(mark,'circle',{cx:n.x,cy:n.y,r:7+16*Math.sqrt(n.strength/maxStrength),fill:emphasized?'#e97824':bandColor(group.label,'all'),stroke:emphasized?'#ffffff':'#8aa3af','stroke-width':emphasized?5:1});
+    if(networkMode==='strength'&&rank!==undefined)svg(mark,'text',{x:n.x,y:n.y+5,'text-anchor':'middle','font-size':14,'font-weight':700,fill:'#ffffff','pointer-events':'none'},String(rank));
     const label=n.title.length>18?n.title.slice(0,17)+'…':n.title;
     const at=labelPosition(n,Math.min(235,[...label].reduce((sum,c)=>sum+(c.charCodeAt(0)>255?13:7),0)));
     svg(mark,'line',{x1:n.x,y1:n.y,x2:at.x,y2:at.y,stroke:'#9eb3bd','stroke-width':.7,'pointer-events':'none'});
