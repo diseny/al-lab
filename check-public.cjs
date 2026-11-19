@@ -40,9 +40,11 @@ function courseStats(stats, keys, overall) {
   }
   for (const courseNames of stats.cases) {
     assert(Array.isArray(courseNames) && courseNames.length > 0);
-    for (const title of courseNames) {
-      assert(typeof title === 'string' && title.trim().length > 0);
-      assert(!/\b(?:R_[a-f0-9]{20}|20[12]\d\d{4,})\b/i.test(title));
+    for (const course of courseNames) {
+      shape(course, 'title outside');
+      assert(typeof course.title === 'string' && course.title.trim().length > 0);
+      assert(typeof course.outside === 'boolean');
+      assert(!/\b(?:R_[a-f0-9]{20}|20[12]\d\d{4,})\b/i.test(course.title));
     }
   }
   assert(stats.courses.length <= 15);
@@ -109,7 +111,7 @@ for (const page of pages) {
     });
   }
 }
-console.log('PASS: course network contains approved aggregates and course-title-only cases.');
+console.log('PASS: course network contains approved aggregates and course-title cases with classification flags.');
 const networks = embedded('course_paths.html', 'network-data');
 for (const page of networks) {
   shape(page, 'unit groups');
