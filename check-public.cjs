@@ -132,3 +132,19 @@ for (const page of networks) {
   }
 }
 console.log('PASS: network aggregate schema and community membership.');
+const readings = embedded('course_paths.html', 'flow-reading-data');
+assert.equal(readings.length, 3);
+for (const page of readings) {
+  shape(page, 'unit groups');
+  for (const group of page.groups) {
+    shape(group, 'label summary context');
+    assert(typeof group.summary === 'string' && group.summary.length > 0);
+    assert(typeof group.context === 'string' && group.context.length > 0);
+  }
+}
+for (const page of [...pages, ...networks]) {
+  const reading = readings.find(r => r.unit === page.unit);
+  assert(reading);
+  for (const group of page.groups) assert(reading.groups.some(r => r.label === group.label));
+}
+console.log('PASS: all faculties and groups have whole-period interpretations.');
