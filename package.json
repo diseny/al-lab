@@ -1,6 +1,6 @@
 {
   "name": "al-lab-aggregate-dashboard",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "private": true,
   "scripts": {
     "check": "node check-public.cjs"

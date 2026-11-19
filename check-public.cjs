@@ -80,6 +80,7 @@ for (const page of pages) {
     assert.equal(group.terms.length, 4);
     assert.equal(group.links.length, 3);
     const termCodes = group.terms.map(term => {
+      minimumCount = ['학부 전체', '대학 전체', '세부전공 미기록'].includes(group.label) ? (term.stage >= 3 ? 2 : 5) : 1;
       courseStats(term, 'stage n outside courses cases profiles', true);
       if (term.stage === 1) assert.equal(term.cases.length, 0);
       shape(term.profiles, 'high low');
@@ -96,7 +97,15 @@ for (const page of pages) {
       const endpoints = termCodes.slice(index, index + 2);
       connections(link, 'from paired edges profiles', ...endpoints);
       shape(link.profiles, 'high low');
-      for (const band of Object.values(link.profiles)) connections(band, 'paired edges', ...endpoints);
+      for (const [name, band] of Object.entries(link.profiles)) {
+        connections(band, 'paired edges', ...endpoints);
+        const source = new Set(group.terms[index].profiles[name].courses.map(c => c.code));
+        const target = new Set(group.terms[index + 1].profiles[name].courses.map(c => c.code));
+        for (const edge of band.edges) {
+          assert(source.has(edge.code_from), 'Connected source must show its enrollment rate');
+          assert(target.has(edge.code_to), 'Connected destination must show its enrollment rate');
+        }
+      }
     });
   }
 }
